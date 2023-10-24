@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
+const {nextui} = require("@nextui-org/react");
 
 export default {
   content: [
@@ -7,6 +8,7 @@ export default {
     // './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/**/*.{js,ts,jsx,tsx}',
     './node_modules/rizzui/dist/*.{js,ts,jsx,tsx}', // must use this line to compile and generate our RizzUI components style
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: ['class', '[data-theme="dark"]'],
   theme: {
@@ -151,5 +153,6 @@ export default {
       // required this to prevent any style on readOnly input elements
       addVariant('not-read-only', '&:not(:read-only)');
     }),
+    nextui()
   ],
 } satisfies Config;

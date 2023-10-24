@@ -14,6 +14,8 @@ const NextProgress = dynamic(() => import('@/components/next-progress'), {
 });
 // styles
 import '@/app/globals.css';
+import { Provider } from 'jotai';
+import { Providers } from '@/redux/provider';
 
 export const metadata = {
   title: siteConfig.title,
@@ -39,6 +41,8 @@ export default async function RootLayout({
         suppressHydrationWarning
         className={cn(inter.variable, lexendDeca.variable, 'font-inter')}
       >
+        <Providers>
+
         <AuthProvider session={session}>
           <ThemeProvider>
             <NextProgress />
@@ -48,6 +52,7 @@ export default async function RootLayout({
             <GlobalModal />
           </ThemeProvider>
         </AuthProvider>
+        </Providers>
       </body>
     </html>
   );
